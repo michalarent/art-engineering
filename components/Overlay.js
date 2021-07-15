@@ -35,7 +35,7 @@ export default function Overlay({ fill }) {
           <tspan
             x={size.width / 3 + size.width / 4}
             y={size.height / 4}
-          >ARENT.MICHAL<@>GMAIL.COM</tspan>
+          >ARENT.MICHAL - at - GMAIL.COM</tspan>
         </text>
       </a.svg>
     </div>
