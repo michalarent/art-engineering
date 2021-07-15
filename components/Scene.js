@@ -5,6 +5,7 @@ import {
   PerspectiveCamera,
   Environment,
   MeshDistortMaterial,
+  MeshReflectorMaterial,
   ContactShadows,
 } from "@react-three/drei";
 import { useSpring } from "@react-spring/core";
@@ -55,12 +56,12 @@ export default function Scene({ setBg }) {
   const [{ wobble, coat, color, ambient, env }] = useSpring(
     {
       wobble: down ? 1.2 : hovered ? 1.05 : 1,
-      coat: mode && !hovered ? 0.04 : 1,
-      ambient: mode && !hovered ? 1.5 : 0.5,
-      env: mode && !hovered ? 0.4 : 1,
-      color: hovered ? "#006a4e" : mode ? "#80DED9" : "#3066BE",
+      coat: mode && !hovered ? 0.04 : 3,
+      ambient: mode && !hovered ? 0.2 : 0.5,
+      env: mode && !hovered ? 0.2 : 0.8,
+      color: hovered ? "#006a4e" : mode ? "#3066BE" : "#3066BE",
       config: (n) =>
-        n === "wobble" && hovered && { mass: 2, tension: 1000, friction: 10 },
+        n === "wobble" && hovered && { mass: 2, tension: 200, friction: 10 },
     },
     [mode, hovered, down]
   );
@@ -98,11 +99,13 @@ export default function Scene({ setBg }) {
             color={color}
             envMapIntensity={env}
             clearcoat={coat}
-            clearcoatRoughness={0}
-            metalness={0.1}
+            clearcoatRoughness={0.01}
+            metalness={3}
+            speed={2}
+            distort={1}
           />
         </a.mesh>
-        <Environment preset="apartment" />
+        <Environment preset="dawn" />
         <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
           position={[0, -1.6, 0]}
