@@ -15,28 +15,27 @@ export default function Overlay({ fill }) {
         <text
           style={{ whiteSpace: "pre" }}
           fontFamily="Inter"
-          fontSize={size.width*0.03}
+          fontSize={size.width * 0.03}
           fontWeight="normal"
           letterSpacing="-.02em"
         >
           <tspan
             x={size.width / 3 + size.width / 4}
-            y={size.height / 4 - size.height/24}
-            children="ART ENGINEERING"
-          />
+            y={size.height / 4 - size.height / 24}
+        
+          >ART ENGINEERING</tspan>
         </text>
         <text
           style={{ whiteSpace: "pre" }}
           fontFamily="Inter"
-          fontSize={size.width*0.02}
+          fontSize={size.width * 0.02}
           fontWeight="bold"
           letterSpacing="-.02em"
         >
           <tspan
             x={size.width / 3 + size.width / 4}
             y={size.height / 4}
-            children="ARENT.MICHAL<@>GMAIL.COM "
-          />
+          >ARENT.MICHAL<@>GMAIL.COM</tspan>
         </text>
       </a.svg>
     </div>
