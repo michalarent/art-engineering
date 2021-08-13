@@ -11,8 +11,6 @@ import {
 import { useSpring } from "@react-spring/core";
 import { a } from "@react-spring/three";
 
-// React-spring animates native elements, in this case <mesh/> etc,
-// but it can also handle 3rd–party objs, just wrap them in "a".
 const AnimatedMaterial = a(MeshDistortMaterial);
 
 export default function Scene({ setBg }) {
@@ -22,7 +20,7 @@ export default function Scene({ setBg }) {
   const [down, setDown] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  // Change cursor on hovered state
+
   useEffect(() => {
     document.body.style.cursor = hovered
       ? "none"
@@ -31,8 +29,6 @@ export default function Scene({ setBg }) {
         )}'), auto`;
   }, [hovered]);
 
-  // Make the bubble float and follow the mouse
-  // This is frame-based animation, useFrame subscribes the component to the render-loop
   useFrame((state) => {
     light.current.position.x = state.mouse.x * 20;
     light.current.position.y = state.mouse.y * 20;
@@ -51,8 +47,6 @@ export default function Scene({ setBg }) {
     }
   });
 
-  // Springs for color and overall looks, this is state-driven animation
-  // React-spring is physics based and turns static props into animated values
   const [{ wobble, coat, color, ambient, env }] = useSpring(
     {
       wobble: down ? 1.2 : hovered ? 1.05 : 1,
